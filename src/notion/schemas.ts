@@ -163,7 +163,10 @@ export const ArticleListUISchema = z.object({
   created: z.string().datetime(),
   slug: z.string(),
   id: z.string(),
-  cover: z.string(),
+  cover: z.object({
+    src: z.string(),
+    blurData: z.string(),
+  }),
 });
 
 export type ArticleListUI = z.infer<typeof ArticleListUISchema>;
@@ -174,7 +177,10 @@ export const ArticleUISchema = z.object({
   created: z.string().datetime(),
   slug: z.string(),
   id: z.string(),
-  cover: z.string(),
+  cover: z.object({
+    src: z.string(),
+    blurData: z.string(),
+  }),
 });
 
 export type ArticleUI = z.infer<typeof ArticleUISchema>;

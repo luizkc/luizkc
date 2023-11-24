@@ -3,6 +3,8 @@ import { type DatabaseObjectResponse } from "@notionhq/client/build/src/api-endp
 import { type ArticleUI, pageSchema } from "./schemas";
 import { blogDatabaseId, notion } from ".";
 
+import { getBase64 } from "~/lib/getBase64";
+
 export const getArticle = async (slug: string) => {
   const response = await notion.databases.query({
     database_id: blogDatabaseId,
@@ -33,13 +35,20 @@ export const getArticle = async (slug: string) => {
   });
   const results = response.results as DatabaseObjectResponse[];
   const parsedProps = pageSchema.parse(results);
-  return parsedProps
-    .map((r) => ({
+  const articles = (await Promise.all(
+    parsedProps.map(async (r) => ({
       title: r.properties.Name.title[0].plain_text,
+      description: r.properties.Description.rich_text[0].plain_text,
       created: r.properties.Created.created_time,
       id: r.id,
       slug: r.properties.slug.formula.string,
-      cover: r.cover.external?.url ?? r.cover.file?.url,
-    }))
-    .at(0) as ArticleUI;
+      cover: {
+        src: r.cover.external?.url ?? r.cover.file?.url ?? "",
+        blurData:
+          (await getBase64(r.cover.external?.url ?? r.cover.file?.url ?? "")) ??
+          "",
+      },
+    })),
+  )) satisfies ArticleUI[];
+  return articles[0];
 };

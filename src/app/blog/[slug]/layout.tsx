@@ -23,7 +23,7 @@ export async function generateMetadata({
       authors: ["luizkc"],
       url: `${baseUrl}/blog/${params.slug}`,
       publishedTime: new Date(article.created).toISOString(),
-      images: [article.cover],
+      images: [article.cover.src],
     },
   };
 }
