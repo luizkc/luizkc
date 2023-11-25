@@ -23,28 +23,39 @@ export function ArticleList({ articles }: ArticleListProps) {
         Blog
       </motion.h2>
       <motion.div className="flex flex-col gap-4">
-        {articles.map(({ title, created, slug }) => (
-          <motion.article
-            variants={parentVariants}
-            key={slug}
-            className="flex justify-between"
-          >
-            <Link
-              href={`/blog/${slug}`}
-              target="_self"
-              className="focus:outline-offset-6 flex w-fit border-spacing-y-3.5 items-center gap-2 border-b border-muted-foreground text-muted-foreground no-underline transition-colors hover:border-accent-foreground hover:text-foreground"
+        {articles.map(
+          ({
+            properties: {
+              created,
+              slug,
+              Name: { title },
+            },
+            id,
+          }) => (
+            <motion.article
+              variants={parentVariants}
+              key={id}
+              className="flex justify-between"
             >
-              <motion.span>{title}</motion.span>
-            </Link>
-            <motion.span>
-              {new Intl.DateTimeFormat("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              }).format(new Date(created))}
-            </motion.span>
-          </motion.article>
-        ))}
+              <Link
+                href={`/blog/${
+                  (slug.formula.type === "string" && slug.formula.string) ?? ""
+                }`}
+                target="_self"
+                className="focus:outline-offset-6 flex w-fit border-spacing-y-3.5 items-center gap-2 border-b border-muted-foreground text-muted-foreground no-underline transition-colors hover:border-accent-foreground hover:text-foreground"
+              >
+                <motion.span>{title[0].plain_text}</motion.span>
+              </Link>
+              <motion.span>
+                {new Intl.DateTimeFormat("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                }).format(new Date(created.created_time))}
+              </motion.span>
+            </motion.article>
+          ),
+        )}
         <motion.span variants={parentVariants}>
           <Link
             href="/blog"

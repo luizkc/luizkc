@@ -1,6 +1,5 @@
-import { type DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-
-import { ProjectsSchema, type ProjectUI } from "./schemas";
+import { NotionApiResult } from "./schemas.notion";
+import { projectsSchema } from "./schemas.user";
 import { notion, projectsDatabaseId } from "./";
 
 export const getProjects = async () => {
@@ -9,7 +8,7 @@ export const getProjects = async () => {
     filter: {
       or: [
         {
-          property: "Published",
+          property: "published",
           checkbox: {
             equals: true,
           },
@@ -18,17 +17,12 @@ export const getProjects = async () => {
     },
     sorts: [
       {
-        property: "Created time",
+        property: "created",
         direction: "ascending",
       },
     ],
   });
-  const results = response.results as DatabaseObjectResponse[];
-  const props = results.map((row) => row.properties);
-  const parsedProps = ProjectsSchema.parse(props);
-  return parsedProps.map((project) => ({
-    title: project.title.rich_text[0].plain_text,
-    description: project.Description.rich_text[0].plain_text,
-    url: project.URL.url,
-  })) as ProjectUI[];
+  const results = NotionApiResult.parse(response.results);
+  const parsedProps = projectsSchema.parse(results);
+  return parsedProps;
 };

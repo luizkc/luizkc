@@ -25,5 +25,10 @@ export default async function RemoteMdxPage({
     },
   });
 
-  return <Article title={article.title} md={md.compiledSource} />;
+  return (
+    <Article
+      title={article.properties.Name.title[0].plain_text}
+      md={md.compiledSource}
+    />
+  );
 }

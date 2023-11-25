@@ -13,17 +13,18 @@ export async function generateMetadata({
   const baseUrl = getBaseUrl();
   const article = await getArticle(params.slug);
   // optionally access and extend (rather than replace) parent metadata
-
   return {
-    title: article.title,
-    description: article.description,
+    title: article.properties.Name.title[0].plain_text,
+    description: article.properties.description.rich_text[0].plain_text,
     openGraph: {
-      title: article.title,
-      description: article.description,
+      title: article.properties.Name.title[0].plain_text,
+      description: article.properties.description.rich_text[0].plain_text,
       authors: ["luizkc"],
       url: `${baseUrl}/blog/${params.slug}`,
-      publishedTime: new Date(article.created).toISOString(),
-      images: [article.cover.src],
+      publishedTime: new Date(
+        article.properties.created.created_time,
+      ).toISOString(),
+      images: [article.cover?.external.url ?? article.cover?.file?.url ?? ""],
     },
   };
 }
@@ -43,8 +44,8 @@ export default async function ArticleLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    headline: article.title,
-    alternativeHeadline: article.description,
+    headline: article.properties.Name.title[0].plain_text,
+    alternativeHeadline: article.properties.description.rich_text[0].plain_text,
     image: article.cover,
     author: "luiz•kc",
     award: "Best article ever written",
@@ -55,9 +56,13 @@ export default async function ArticleLayout({
     publisher: "luiz•kc",
     url: `${baseUrl}/blog/${params.slug}`,
     datePublished: "2015-09-20",
-    dateCreated: new Date(article.created).toISOString(),
-    dateModified: new Date(article.created).toISOString(),
-    description: article.description,
+    dateCreated: new Date(
+      article.properties.created.created_time,
+    ).toISOString(),
+    dateModified: new Date(
+      article.properties.edited.last_edited_time,
+    ).toISOString(),
+    description: article.properties.description.rich_text[0].plain_text,
     articleBody: mdString.parent,
   };
 

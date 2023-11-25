@@ -22,8 +22,13 @@ export interface ArticleListItemProps {
 }
 
 export function ArticleListItem({ article }: ArticleListItemProps) {
-  const { title, created, slug, id, description, cover } = article;
-
+  const { properties, id, cover } = article;
+  const {
+    created,
+    description,
+    slug,
+    Name: { title },
+  } = properties;
   const x = useMotionValue(0.5);
   const y = useMotionValue(0.5);
 
@@ -52,7 +57,9 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
   return (
     <Link
       variants={parentVariants}
-      href={`/blog/${slug}`}
+      href={`/blog/${
+        (slug.formula.type === "string" && slug.formula.string) ?? ""
+      }`}
       target="_self"
       style={{ all: "unset" }}
     >
@@ -75,14 +82,14 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
           className="h-40 w-full rounded-md"
         >
           <Image
-            alt={title}
+            alt={title[0].plain_text}
             fill
             className="!static my-0 w-full overflow-hidden rounded-md object-cover"
             variants={parentVariants}
             whileHover="unscale"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            src={cover.src}
-            blurDataURL={cover.blurData}
+            src={cover?.external?.url ?? cover?.file?.url ?? ""}
+            blurDataURL={cover.blurDataURL}
             placeholder="blur"
           />
         </motion.div>
@@ -91,14 +98,14 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
           whileHover="unscale"
           className="focus:outline-offset-6 my-0 flex w-fit border-spacing-y-3.5 items-center gap-2 border-b border-muted-foreground text-muted-foreground no-underline transition-colors hover:border-accent-foreground hover:text-foreground"
         >
-          {title}
+          {title[0].plain_text}
         </motion.p>
         <motion.p
           className="my-0"
           whileHover="unscale"
           variants={parentVariants}
         >
-          {description}
+          {description.rich_text[0].plain_text}
         </motion.p>
         <motion.span
           whileHover="unscale"
@@ -109,7 +116,7 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
             year: "numeric",
             month: "short",
             day: "numeric",
-          }).format(new Date(created))}
+          }).format(new Date(created.created_time))}
         </motion.span>
         {/* <motion.span
           variants={parentVariants}

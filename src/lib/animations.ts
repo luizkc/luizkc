@@ -13,13 +13,20 @@ export const parentVariants: Variants = {
   scale: {
     scale: 1.05,
     borderColor: "hsl(var(--muted))",
-    boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
+    boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
+  },
+  scaleWithPadding: {
+    scale: 1.05,
+    padding: "0.5rem",
+    borderColor: "hsl(var(--muted))",
+    boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
   },
   unscale: {
     scale: 1,
-    borderColor: "unset",
+    borderColor: "rgba(0,0,0,0)",
     boxShadow: "unset",
   },
+
   show: {
     opacity: 1,
     x: 0,

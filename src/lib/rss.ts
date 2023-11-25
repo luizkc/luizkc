@@ -22,10 +22,14 @@ export async function generateRssFeed() {
 
   articles.map((article) => {
     feed.item({
-      title: article.title,
-      description: article.description,
-      url: `${baseUrl}/blog/${article.slug}`,
-      date: article.created,
+      title: article.properties.Name.title[0].plain_text,
+      description: article.properties.description.rich_text[0].plain_text,
+      url: `${baseUrl}/blog/${
+        article.properties.slug.formula.type === "string"
+          ? article.properties.slug.formula.string
+          : ""
+      }`,
+      date: article.properties.created.created_time,
     });
   });
   return feed.xml({ indent: true });
