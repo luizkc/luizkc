@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   //   template: "luiz•kc — %s",
   // },
   title: "luiz•kc",
+  metadataBase: new URL(baseUrl),
   openGraph: {
     description: "your next creative developer",
     title: "luiz•kc",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     url: baseUrl,
     images: [
       {
-        url: `${baseUrl}/seo.png`,
+        url: "/og.png",
         alt: "luiz•kc",
       },
     ],
