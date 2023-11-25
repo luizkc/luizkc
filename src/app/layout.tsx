@@ -10,10 +10,23 @@ const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
   description: "your next creative developer",
-  title: {
-    absolute: "luiz•kc",
-    default: "luiz•kc",
-    template: "luiz•kc — %s",
+  // title: {
+  //   absolute: "luiz•kc",
+  //   default: "luiz•kc",
+  //   template: "luiz•kc — %s",
+  // },
+  title: "luiz•kc",
+  openGraph: {
+    description: "your next creative developer",
+    title: "luiz•kc",
+    type: "website",
+    url: baseUrl,
+    images: [
+      {
+        url: `${baseUrl}/seo.png`,
+        alt: "luiz•kc",
+      },
+    ],
   },
 };
 

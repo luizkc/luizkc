@@ -17,10 +17,10 @@ export async function generateMetadata({
   }
   // optionally access and extend (rather than replace) parent metadata
   return {
-    title: article.properties.Name.title[0].plain_text,
+    title: `${article.properties.Name.title[0].plain_text} — luiz•kc`,
     description: article.properties.description.rich_text[0].plain_text,
     openGraph: {
-      title: article.properties.Name.title[0].plain_text,
+      title: `${article.properties.Name.title[0].plain_text} — luiz•kc`,
       description: article.properties.description.rich_text[0].plain_text,
       authors: ["luizkc"],
       url: `${baseUrl}/blog/${params.slug}`,

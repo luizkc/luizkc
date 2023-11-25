@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { BlogLayout } from "~/components/blog/layout";
 
 export const metadata: Metadata = {
-  title: "recent articles",
+  title: "luiz•kc — recent articles",
   description: "the best articles you'll ever read",
 };
 
