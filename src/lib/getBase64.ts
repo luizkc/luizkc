@@ -14,6 +14,8 @@ export async function getBase64(url: string) {
 
     return base64;
   } catch (e) {
-    if (e instanceof Error) console.log(e.stack);
+    if (e instanceof Error) {
+      return "";
+    }
   }
 }
