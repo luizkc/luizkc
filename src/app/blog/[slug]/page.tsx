@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { serialize } from "next-mdx-remote/serialize";
 import remarkGfm from "remark-gfm";
 import remarkMdx from "remark-mdx";
@@ -15,6 +16,9 @@ export default async function RemoteMdxPage({
   params: { slug: string };
 }) {
   const article = await getArticle(params.slug);
+  if (!article) {
+    return notFound();
+  }
   const mdblocks = await n2m.pageToMarkdown(article.id);
   const mdString = n2m.toMarkdownString(mdblocks);
   const md = await serialize(mdString.parent, {

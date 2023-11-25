@@ -12,6 +12,9 @@ export async function generateMetadata({
   // read route params
   const baseUrl = getBaseUrl();
   const article = await getArticle(params.slug);
+  if (!article) {
+    return {};
+  }
   // optionally access and extend (rather than replace) parent metadata
   return {
     title: article.properties.Name.title[0].plain_text,
@@ -38,6 +41,9 @@ export default async function ArticleLayout({
 }) {
   const baseUrl = getBaseUrl();
   const article = await getArticle(params.slug);
+  if (!article) {
+    return <>{children}</>;
+  }
   const mdblocks = await n2m.pageToMarkdown(article.id);
   const mdString = n2m.toMarkdownString(mdblocks);
 

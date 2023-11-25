@@ -30,6 +30,9 @@ export const getArticle = async (slug: string) => {
       },
     ],
   });
+  if (response.results.length === 0) {
+    return null;
+  }
   const results = NotionApiResult.parse(response.results);
   const parsed = articleSchema.parse(results[0]);
   return parsed;
