@@ -1,7 +1,7 @@
 import { BlogScreen } from "~/components/blog/screen";
 import { getArticles } from "~/notion/get-articles";
 
-export const revalidate = 6000;
+export const revalidate = 3600;
 export const dynamic = "force-static";
 
 export default async function BlogPage() {

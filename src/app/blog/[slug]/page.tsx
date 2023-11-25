@@ -6,7 +6,7 @@ import { Article } from "~/components/blog/article";
 import { n2m } from "~/notion";
 import { getArticle } from "~/notion/get-article";
 
-export const revalidate = 6000;
+export const revalidate = 3600;
 export const dynamic = "force-static";
 
 export default async function RemoteMdxPage({

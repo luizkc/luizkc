@@ -8,7 +8,7 @@ import {
 } from "~/components/blog/article-list";
 import { parentVariants } from "~/lib/animations";
 
-export const revalidate = 6000;
+export const revalidate = 3600;
 
 export function BlogScreen({ articles }: ArticleListProps) {
   return (
