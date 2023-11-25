@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 
 import "./globals.css";
@@ -47,6 +48,7 @@ export default function RootLayout({
           />
           <div className="mx-auto max-w-2xl px-4">{children}</div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
