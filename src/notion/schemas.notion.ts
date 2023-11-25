@@ -255,10 +255,13 @@ const IconObject = z.object({
 
 const FileObject = z.object({
   type: z.enum(["external", "file"]),
-  emoji: z.union([z.string(), z.null(), z.undefined()]),
-  external: z.object({
-    url: z.string().url(),
-  }),
+  external: z.union([
+    z.object({
+      url: z.string().url(),
+    }),
+    z.null(),
+    z.undefined(),
+  ]),
   file: z.union([
     z.object({
       url: z.string().url(),

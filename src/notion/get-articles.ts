@@ -24,7 +24,6 @@ export const getArticles = async () => {
       },
     ],
   });
-
   const results = NotionApiResult.parse(response.results);
   const parsed = articlesSchema.parse(results);
   const parsedWithBlur = await Promise.all(
@@ -33,7 +32,7 @@ export const getArticles = async () => {
       cover: {
         ...article.cover,
         blurDataURL: await getBase64(
-          article.cover?.external.url ?? article.cover?.file?.url ?? "",
+          article.cover?.external?.url ?? article.cover?.file?.url ?? "",
         ),
       },
     })),

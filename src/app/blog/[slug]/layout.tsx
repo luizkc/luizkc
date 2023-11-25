@@ -27,7 +27,7 @@ export async function generateMetadata({
       publishedTime: new Date(
         article.properties.created.created_time,
       ).toISOString(),
-      images: [article.cover?.external.url ?? article.cover?.file?.url ?? ""],
+      images: [article.cover?.external?.url ?? article.cover?.file?.url ?? ""],
     },
   };
 }
