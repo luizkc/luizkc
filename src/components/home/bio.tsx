@@ -34,10 +34,10 @@ export function Bio() {
             target="_blank"
             className="focus:outline-offset-6 mr-0.5 w-fit border-spacing-y-3.5 gap-2 border-b border-muted-foreground no-underline transition-colors hover:border-accent-foreground"
           >
-            Dr Smood group
+            Darwin Agency
           </Link>
         </strong>
-        , making blazingly fast, beautiful, and modern storefronts.
+        , helping businesses transform their software.
       </motion.span>
     </p>
   );
