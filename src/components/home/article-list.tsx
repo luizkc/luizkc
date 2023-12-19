@@ -42,7 +42,7 @@ export function ArticleList({ articles }: ArticleListProps) {
                   (slug.formula.type === "string" && slug.formula.string) ?? ""
                 }`}
                 target="_self"
-                className="focus:outline-offset-6 flex w-fit border-spacing-y-3.5 items-center gap-2 border-b border-muted-foreground text-muted-foreground no-underline transition-colors hover:border-accent-foreground hover:text-foreground"
+                className="focus:outline-offset-6 flex w-fit max-w-[210px] items-center gap-2 text-muted-foreground decoration-1 underline-offset-8 transition-colors hover:text-foreground sm:max-w-none"
               >
                 <motion.span>{title[0].plain_text}</motion.span>
               </Link>
@@ -60,7 +60,7 @@ export function ArticleList({ articles }: ArticleListProps) {
           <Link
             href="/blog"
             target="_self"
-            className=" focus:outline-offset-6 flex w-fit border-spacing-y-3.5 items-center gap-2 border-b border-muted-foreground text-muted-foreground no-underline transition-colors hover:border-accent-foreground hover:text-foreground"
+            className=" focus:outline-offset-6 flex w-fit items-center gap-2 border-b border-muted-foreground text-muted-foreground text-muted-foreground no-underline decoration-1 underline-offset-8 transition-colors transition-colors hover:border-accent-foreground hover:text-foreground hover:text-foreground"
           >
             All posts <MoveRight size={16} />
           </Link>

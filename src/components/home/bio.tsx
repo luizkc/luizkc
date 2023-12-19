@@ -32,12 +32,12 @@ export function Bio() {
           <Link
             href="https://www.linkedin.com/company/dr-smood-group-inc/"
             target="_blank"
-            className="focus:outline-offset-6 mr-0.5 w-fit border-spacing-y-3.5 gap-2 border-b border-muted-foreground no-underline transition-colors hover:border-accent-foreground"
+            className="focus:outline-offset-6 w-fit gap-2 text-muted-foreground underline decoration-1 underline-offset-8 transition-colors hover:text-foreground"
           >
             Darwin Agency
           </Link>
-        </strong>
-        , helping businesses transform their software.
+        </strong>{" "}
+        helping businesses transform their software.
       </motion.span>
     </p>
   );

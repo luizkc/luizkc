@@ -36,7 +36,7 @@ export function Projects({ projects }: ProjectsProps) {
               <Link
                 href={url.url}
                 target="_blank"
-                className="focus:outline-offset-6 flex w-fit border-spacing-y-3.5 items-center gap-2 border-b border-muted-foreground text-muted-foreground no-underline transition-colors hover:border-accent-foreground hover:text-foreground"
+                className="focus:outline-offset-6 flex w-fit items-center gap-2 text-muted-foreground underline decoration-1 underline-offset-8 transition-colors hover:text-foreground"
               >
                 <motion.span className="font-medium">
                   {title[0].plain_text}

@@ -68,7 +68,7 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
         onMouseLeave={handleMouseLeave}
         variants={parentVariants}
         key={id}
-        className="flex flex-col gap-3 rounded-md border border-transparent p-2 hover:cursor-pointer"
+        className="flex h-full max-w-[304px] flex-col gap-3 rounded-md border border-transparent p-2 hover:cursor-pointer"
         whileHover="scale"
         style={{
           rotateX,
@@ -93,39 +93,33 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
             placeholder="blur"
           />
         </motion.div>
-        <motion.p
-          variants={parentVariants}
-          whileHover="unscale"
-          className="focus:outline-offset-6 my-0 flex w-fit border-spacing-y-3.5 items-center gap-2 border-b border-muted-foreground text-muted-foreground no-underline transition-colors hover:border-accent-foreground hover:text-foreground"
-        >
-          {title[0].plain_text}
-        </motion.p>
-        <motion.p
-          className="my-0"
-          whileHover="unscale"
-          variants={parentVariants}
-        >
-          {description.rich_text[0].plain_text}
-        </motion.p>
-        <motion.span
-          whileHover="unscale"
-          variants={parentVariants}
-          className="text-muted-foreground"
-        >
-          {new Intl.DateTimeFormat("en-US", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          }).format(new Date(created.created_time))}
-        </motion.span>
-        {/* <motion.span
-          variants={parentVariants}
-          initial="hide"
-          //   whileHover="show"
-          //   className="text-muted-foreground opacity-0 bg-transparent absolute right-0 bottom-3.5 px-2"
-        >
-          <MoveRight size={16} />
-        </motion.span> */}
+        <motion.div className="flex h-full flex-col justify-between gap-2">
+          <motion.p
+            variants={parentVariants}
+            whileHover="unscale"
+            className="my-0 text-xl font-bold"
+          >
+            {title[0].plain_text}
+          </motion.p>
+          <motion.p
+            className="my-0 text-muted-foreground"
+            whileHover="unscale"
+            variants={parentVariants}
+          >
+            {description.rich_text[0].plain_text}
+          </motion.p>
+          <motion.span
+            whileHover="unscale"
+            variants={parentVariants}
+            className="text-muted-foreground"
+          >
+            {new Intl.DateTimeFormat("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "numeric",
+            }).format(new Date(created.created_time))}
+          </motion.span>
+        </motion.div>
       </motion.article>
     </Link>
   );
