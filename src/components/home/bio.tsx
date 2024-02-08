@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 import { parentVariants } from "~/lib/animations";
+import { calculateAge } from "~/lib/utils";
 
 export function Bio() {
   return (
@@ -16,7 +17,7 @@ export function Bio() {
             kc
           </motion.span>
         </motion.strong>
-        . I&apos;m {new Date().getFullYear() - 1996} y/o and I&apos;m a creative
+        . I&apos;m {calculateAge("1996-06-10")} y/o and I&apos;m a creative
         full-stack developer. I like{" "}
         <motion.strong>triathlon sports</motion.strong> and{" "}
         <motion.strong>building things</motion.strong>. I enjoy{" "}
@@ -27,17 +28,23 @@ export function Bio() {
       <br />
       <br />
       <motion.span variants={parentVariants}>
-        Right now I&apos;m working at{" "}
-        <strong>
-          <Link
-            href="https://www.linkedin.com/company/dr-smood-group-inc/"
-            target="_blank"
-            className="focus:outline-offset-6 w-fit gap-2 text-muted-foreground underline decoration-1 underline-offset-8 transition-colors hover:text-foreground"
-          >
-            Darwin Agency
-          </Link>
-        </strong>{" "}
-        helping businesses transform their software.
+        Right now I&apos;m developing and maintaining storefronts for{" "}
+        <Link
+          href="https://www.linkedin.com/company/dr-smood-group-inc/"
+          target="_blank"
+          className="focus:outline-offset-6 w-fit gap-2 text-muted-foreground underline decoration-1 underline-offset-8 transition-colors hover:text-foreground"
+        >
+          MOSS
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="https://www.linkedin.com/company/dr-smood-group-inc/"
+          target="_blank"
+          className="focus:outline-offset-6 w-fit gap-2 text-muted-foreground underline decoration-1 underline-offset-8 transition-colors hover:text-foreground"
+        >
+          Dr Smood
+        </Link>
+        .
       </motion.span>
     </p>
   );
