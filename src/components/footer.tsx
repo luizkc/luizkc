@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, Github, Linkedin, Network, Rss, Send } from "lucide-react";
+import { FileText, Github, Linkedin, Network, Send } from "lucide-react";
 import { default as NextLink } from "next/link";
 
 import { ModeToggle } from "./ui/mode-toggle";
@@ -36,21 +36,6 @@ export function Footer() {
                 </Link>
               </TooltipTrigger>
               <TooltipContent>hire me plz</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider delayDuration={0}>
-            <Tooltip>
-              <TooltipTrigger>
-                <Link
-                  href="/rss.xml"
-                  target="_self"
-                  className="focus:outline-offset-6 underline decoration-neutral-600 underline-offset-4 transition-colors hover:decoration-neutral-500 focus:decoration-neutral-500"
-                >
-                  <span className="sr-only">blog stuff</span>
-                  <Rss className=" h-4 w-4" />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>blog stuff</TooltipContent>
             </Tooltip>
           </TooltipProvider>
           <TooltipProvider delayDuration={0}>

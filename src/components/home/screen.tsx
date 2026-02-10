@@ -5,16 +5,12 @@ import { motion } from "framer-motion";
 
 import { Footer } from "../footer";
 import { Header } from "../header";
-import { ArticleList, type ArticleListProps } from "../home/article-list";
 import { Bio } from "../home/bio";
 import { Projects, type ProjectsProps } from "../home/projects";
 
 import { parentVariants } from "~/lib/animations";
 
-export function HomeScreen({
-  articles,
-  projects,
-}: ArticleListProps & ProjectsProps) {
+export function HomeScreen({ projects }: ProjectsProps) {
   useEffect(() => {
     window.history.scrollRestoration = "manual";
   }, []);
@@ -30,7 +26,6 @@ export function HomeScreen({
       <motion.section className="max-w-2xl">
         <Bio />
         <Projects projects={projects} />
-        <ArticleList articles={articles} />
       </motion.section>
       <div className="mt-28" />
       <Footer />
