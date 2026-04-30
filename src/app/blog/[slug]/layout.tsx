@@ -7,11 +7,11 @@ import { getArticle } from "~/notion/get-article";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  // read route params
+  const { slug } = await params;
   const baseUrl = getBaseUrl();
-  const article = await getArticle(params.slug);
+  const article = await getArticle(slug);
   if (!article) {
     return {};
   }
@@ -23,7 +23,7 @@ export async function generateMetadata({
       title: `${article.properties.Name.title[0].plain_text} — luiz•kc`,
       description: article.properties.description.rich_text[0].plain_text,
       authors: ["luizkc"],
-      url: `${baseUrl}/blog/${params.slug}`,
+      url: `${baseUrl}/blog/${slug}`,
       publishedTime: new Date(
         article.properties.created.created_time,
       ).toISOString(),
@@ -37,10 +37,11 @@ export default async function ArticleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
   const baseUrl = getBaseUrl();
-  const article = await getArticle(params.slug);
+  const article = await getArticle(slug);
   if (!article) {
     return <>{children}</>;
   }
@@ -60,7 +61,7 @@ export default async function ArticleLayout({
     keywords: "seo sales b2b",
     wordcount: mdString.parent.split(" ").length,
     publisher: "luiz•kc",
-    url: `${baseUrl}/blog/${params.slug}`,
+    url: `${baseUrl}/blog/${slug}`,
     datePublished: "2015-09-20",
     dateCreated: new Date(
       article.properties.created.created_time,

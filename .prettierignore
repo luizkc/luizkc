@@ -2,4 +2,4 @@
 supabase/.temp/**/*
 .dist/**/*
 .next/**/*
-pnpm-lock.yaml
+bun.lock

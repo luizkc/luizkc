@@ -3,9 +3,9 @@ import { type ArticleListProps } from "~/components/home/article-list";
 export { type ArticleListProps } from "~/components/home/article-list";
 import { motion } from "framer-motion";
 
-import { ArticleListItem } from "./article-list-item";
-
 import { parentVariants } from "~/lib/animations";
+
+import { ArticleListItem } from "./article-list-item";
 
 export function ArticleList({ articles }: ArticleListProps) {
   return (

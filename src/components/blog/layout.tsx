@@ -13,6 +13,9 @@ const Link = motion(NextLink);
 export function BlogLayout({ children }: { children: React.ReactNode }) {
   const params = useParams();
   const path = usePathname();
+  const slug = params.slug;
+  const hasSlug = Array.isArray(slug) ? slug.length > 0 : Boolean(slug);
+
   return (
     <motion.main
       variants={parentVariants}
@@ -22,13 +25,7 @@ export function BlogLayout({ children }: { children: React.ReactNode }) {
     >
       <Link
         variants={parentVariants}
-        href={
-          params.slug?.length > 0
-            ? "/blog"
-            : path.startsWith("/blog")
-              ? "/"
-              : "/blog"
-        }
+        href={hasSlug ? "/blog" : path.startsWith("/blog") ? "/" : "/blog"}
         target="_self"
         className=" focus:outline-offset-6 flex w-fit border-spacing-y-3.5 items-center gap-2 border-b border-muted-foreground text-muted-foreground no-underline transition-all  hover:border-accent-foreground hover:text-foreground"
       >

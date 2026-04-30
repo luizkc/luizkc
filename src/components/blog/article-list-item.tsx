@@ -2,14 +2,8 @@ import { default as NextImage } from "next/image";
 import { default as NextLink } from "next/link";
 
 export { type ArticleListProps } from "../home/article-list";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { type MouseEvent } from "react";
-import {
-  motion,
-  type MotionValue,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
 
 import { parentVariants } from "~/lib/animations";
 import { type getArticles } from "~/notion/get-articles";
@@ -32,8 +26,8 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
   const x = useMotionValue(0.5);
   const y = useMotionValue(0.5);
 
-  const mouseXSpring = useSpring(x) as MotionValue<number>;
-  const mouseYSpring = useSpring(y) as MotionValue<number>;
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
 
   const rotateX = useTransform(mouseYSpring, [0, 1], ["-6deg", "6deg"]);
   const rotateY = useTransform(mouseXSpring, [0, 1], ["6deg", "-6deg"]);

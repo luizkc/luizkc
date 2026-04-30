@@ -1,11 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, Github, Linkedin, Network, Rss, Send } from "lucide-react";
+import { FileText, Network, Rss, Send } from "lucide-react";
 import { default as NextLink } from "next/link";
-
-import { ModeToggle } from "./ui/mode-toggle";
-import { Logo } from "./logo";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import {
   Tooltip,
@@ -14,6 +12,9 @@ import {
   TooltipTrigger,
 } from "~/components/ui/tooltip";
 import { parentVariants } from "~/lib/animations";
+
+import { Logo } from "./logo";
+import { ModeToggle } from "./ui/mode-toggle";
 
 const Link = motion(NextLink);
 
@@ -92,7 +93,7 @@ export function Footer() {
                   className="focus:outline-offset-6 underline decoration-neutral-600 underline-offset-4 transition-colors hover:decoration-neutral-500 focus:decoration-neutral-500"
                 >
                   <span className="sr-only">nerd stuff</span>
-                  <Github className=" h-4 w-4" />
+                  <FaGithub className=" h-4 w-4" />
                 </Link>
               </TooltipTrigger>
               <TooltipContent>nerd stuff</TooltipContent>
@@ -107,7 +108,7 @@ export function Footer() {
                   className="focus:outline-offset-6 underline decoration-neutral-600 underline-offset-4 transition-colors hover:decoration-neutral-500 focus:decoration-neutral-500"
                 >
                   <span className="sr-only">rarely check this</span>
-                  <Linkedin className=" h-4 w-4" />
+                  <FaLinkedin className=" h-4 w-4" />
                 </Link>
               </TooltipTrigger>
               <TooltipContent>rarely check this</TooltipContent>

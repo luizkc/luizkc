@@ -1,10 +1,12 @@
+"use client";
+
+import { motion } from "framer-motion";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { motion } from "framer-motion";
-
-import { CopyCode } from "./copy-code";
 
 import { parentVariants } from "~/lib/animations";
+
+import { CopyCode } from "./copy-code";
 
 export function CodeBlock({
   language,

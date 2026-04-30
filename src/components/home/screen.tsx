@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+
+import { parentVariants } from "~/lib/animations";
 
 import { Footer } from "../footer";
 import { Header } from "../header";
 import { ArticleList, type ArticleListProps } from "../home/article-list";
 import { Bio } from "../home/bio";
 import { Projects, type ProjectsProps } from "../home/projects";
-
-import { parentVariants } from "~/lib/animations";
 
 export function HomeScreen({
   articles,

@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Logo } from "./logo";
-
 import { parentVariants } from "~/lib/animations";
 import { cn } from "~/lib/utils";
+
+import { Logo } from "./logo";
 
 export function Header() {
   const path = usePathname();
