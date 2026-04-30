@@ -36,14 +36,6 @@ export function Bio() {
           className="focus:outline-offset-6 w-fit gap-2 text-muted-foreground underline decoration-1 underline-offset-8 transition-colors hover:text-foreground"
         >
           Vallor
-        </Link>{" "}
-        and{" "}
-        <Link
-          href="https://www.linkedin.com/company/dr-smood-group-inc/"
-          target="_blank"
-          className="focus:outline-offset-6 w-fit gap-2 text-muted-foreground underline decoration-1 underline-offset-8 transition-colors hover:text-foreground"
-        >
-          Dr Smood
         </Link>
         .
       </motion.span>
