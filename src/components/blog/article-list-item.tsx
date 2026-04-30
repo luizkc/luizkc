@@ -2,7 +2,7 @@ import { default as NextImage } from "next/image";
 import { default as NextLink } from "next/link";
 
 export { type ArticleListProps } from "../home/article-list";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { type MouseEvent } from "react";
 
 import { parentVariants } from "~/lib/animations";
