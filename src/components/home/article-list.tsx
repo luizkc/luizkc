@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
+import { motion } from "motion/react";
 import { default as NextLink } from "next/link";
 
 import { parentVariants } from "~/lib/animations";

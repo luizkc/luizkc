@@ -1,7 +1,7 @@
 import { type ArticleListProps } from "~/components/home/article-list";
 
 export { type ArticleListProps } from "~/components/home/article-list";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import { parentVariants } from "~/lib/animations";
 
