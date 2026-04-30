@@ -21,20 +21,20 @@ export function Bio() {
         full-stack developer. I like{" "}
         <motion.strong>triathlon sports</motion.strong> and{" "}
         <motion.strong>building things</motion.strong>. I enjoy{" "}
-        <motion.strong>making GPTs</motion.strong>,{" "}
-        <motion.strong>web development</motion.strong> and I live on the{" "}
-        <motion.strong>edge</motion.strong> (bad developer joke).
+        <motion.strong>babysitting LLMs</motion.strong>,{" "}
+        <motion.strong>web development</motion.strong> and I'm a professional{" "}
+        <motion.strong>vibe coder</motion.strong> (and vibe code refactorer).
       </motion.span>
       <br />
       <br />
       <motion.span variants={parentVariants}>
-        Right now I&apos;m developing and maintaining storefronts for{" "}
+        Right now I&apos;m a founding engineer at{" "}
         <Link
-          href="https://www.linkedin.com/company/dr-smood-group-inc/"
+          href="https://vallor.ai"
           target="_blank"
           className="focus:outline-offset-6 w-fit gap-2 text-muted-foreground underline decoration-1 underline-offset-8 transition-colors hover:text-foreground"
         >
-          MOSS
+          Vallor
         </Link>{" "}
         and{" "}
         <Link
