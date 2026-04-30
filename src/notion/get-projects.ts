@@ -22,7 +22,7 @@ export const getProjects = async () => {
     sorts: [
       {
         property: "created",
-        direction: "ascending",
+        direction: "descending",
       },
     ],
   });
