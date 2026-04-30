@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, Copy } from "lucide-react";
+import { useEffect, useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import { buttonVariants } from "~/components/ui/button";
 import {

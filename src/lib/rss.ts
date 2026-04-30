@@ -1,8 +1,8 @@
 import RSS from "rss";
 
-import { getBaseUrl } from "./getbaseUrl";
-
 import { getArticles } from "~/notion/get-articles";
+
+import { getBaseUrl } from "./getbaseUrl";
 
 export async function generateRssFeed() {
   const articles = await getArticles();

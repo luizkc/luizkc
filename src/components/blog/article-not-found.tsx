@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion";
 
-import { ArticleList } from "./article-list";
-
 import { parentVariants } from "~/lib/animations";
 import { type getArticles } from "~/notion/get-articles";
+
+import { ArticleList } from "./article-list";
 
 interface ArticleNotFoundProps {
   articles: Awaited<ReturnType<typeof getArticles>>;

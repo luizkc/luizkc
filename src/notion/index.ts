@@ -10,3 +10,13 @@ export const n2m = new NotionToMarkdown({ notionClient: notion });
 export const projectsDatabaseId = process.env.NOTION_PROJECTS_DATABASE_ID ?? "";
 export const blogDatabaseId = process.env.NOTION_BLOG_DATABASE_ID ?? "";
 export const resumePageId = process.env.NOTION_RESUME_PAGE_ID ?? "";
+
+export const hasBlogDatabaseConfig = Boolean(
+  process.env.NOTION_TOKEN && blogDatabaseId,
+);
+export const hasProjectsDatabaseConfig = Boolean(
+  process.env.NOTION_TOKEN && projectsDatabaseId,
+);
+export const hasResumePageConfig = Boolean(
+  process.env.NOTION_TOKEN && resumePageId,
+);

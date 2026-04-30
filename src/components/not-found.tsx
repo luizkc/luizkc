@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { default as NextImage } from "next/image";
+import { useEffect } from "react";
+
+import { parentVariants } from "~/lib/animations";
 
 import { Footer } from "./footer";
 import { Header } from "./header";
-
-import { parentVariants } from "~/lib/animations";
 
 const NotFoundGif = "https://i.giphy.com/media/iey6oXTNZqrxHk6zdS/giphy.webp";
 

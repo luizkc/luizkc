@@ -1,10 +1,14 @@
-import { NotionApiResult } from "./schemas.notion";
-import { articlesSchema } from "./schemas.user";
-import { blogDatabaseId, notion } from ".";
-
 import { getBase64 } from "~/lib/getBase64";
 
+import { blogDatabaseId, hasBlogDatabaseConfig, notion } from ".";
+import { NotionApiResult } from "./schemas.notion";
+import { articlesSchema } from "./schemas.user";
+
 export const getArticles = async () => {
+  if (!hasBlogDatabaseConfig) {
+    return [];
+  }
+
   const response = await notion.databases.query({
     database_id: blogDatabaseId,
     filter: {

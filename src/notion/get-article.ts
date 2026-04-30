@@ -1,8 +1,12 @@
+import { blogDatabaseId, hasBlogDatabaseConfig, notion } from ".";
 import { NotionApiResult } from "./schemas.notion";
 import { articleSchema } from "./schemas.user";
-import { blogDatabaseId, notion } from ".";
 
 export const getArticle = async (slug: string) => {
+  if (!hasBlogDatabaseConfig) {
+    return null;
+  }
+
   const response = await notion.databases.query({
     database_id: blogDatabaseId,
     filter: {
