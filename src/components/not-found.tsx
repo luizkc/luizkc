@@ -20,7 +20,7 @@ export function NotFound() {
 
   return (
     <motion.main
-      className="prose prose-zinc min-h-screen dark:prose-invert"
+      className="prose prose-zinc min-h-[calc(100dvh-4rem)] dark:prose-invert"
       variants={parentVariants}
       initial="hidden"
       animate="visible"
