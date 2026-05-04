@@ -22,7 +22,7 @@ export function Bio() {
         <motion.strong>triathlon sports</motion.strong> and{" "}
         <motion.strong>building things</motion.strong>. I enjoy{" "}
         <motion.strong>babysitting LLMs</motion.strong>,{" "}
-        <motion.strong>web development</motion.strong> and I&apos;m a
+        <motion.strong>web development</motion.strong>{" "}and I&apos;m a
         professional <motion.strong>vibe coder</motion.strong> (and vibe code
         refactorer).
       </motion.span>
